@@ -41,7 +41,12 @@ Bu proje, kullanıcıların günlük yapılacaklar listelerini yönetebileceği 
   ### PROJEYE AİT GÖRÜNTÜLER
   ![image](https://github.com/user-attachments/assets/bfbc032d-b8b3-4f29-bd7c-69d1337c6bea)
   ![image](https://github.com/user-attachments/assets/8334ea9f-f6c4-45ec-83db-5d5ad0569729)
-  ![image](https://github.com/user-attachments/assets/6f63b63b-3103-40d8-a570-edc05de96c37)
+  ![image](https://github.com/user-attachments/assets/9beda55b-d342-4e59-9e38-f70009928983)
+  ![image](https://github.com/user-attachments/assets/d6902e36-4684-4795-a2c8-eaffa4f4e97d)
+  ![image](https://github.com/user-attachments/assets/effd0577-73b4-4185-b6b9-3e424ac88159)
+
+
+
 
 
 
