@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body style="background-image: url(back.jpg);">
+    <div class="min-h-screen flex items-center justify-center bg-opacity-50 bg-white">
+        <div class="bg-white shadow-md rounded-xl p-8 w-full max-w-md border border-blue-100 bg-blue-50">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-2">Giriş Yap</h2>
+            <p class="text-center text-sm text-gray-500 mb-6">Hayatını düzene sokmaya bir adım daha yaklaştın.</p>
+
+            <form class="space-y-4" id="loginForm">
+                <!-- E-posta Girişi -->
+                <input type="email" placeholder="Email" id="email"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+
+                <!-- Şifre Girişi -->
+                <div class="relative">
+                    <input type="password" placeholder="Şifre" id="password"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 pr-10" />
+                    <span id="togglePassword"
+                        class="material-icons absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500">
+                        visibility_off
+                    </span>
+                </div>
+
+                <!-- Kayıt Butonu -->
+                <button class="w-full bg-[#C4D0EB] text-white py-3 rounded-md hover:bg-[#334977] transition"
+                    id="loginbutton">Giriş
+                    Yap</button>
+
+                <div class="flex items-center justify-between my-2">
+                    <hr class="border-gray-300 w-1/3" />
+                    <span class="text-sm text-gray-500">Veya</span>
+                    <hr class="border-gray-300 w-1/3" />
+                </div>
+
+                <!-- Google ile giriş butonu -->
+                <button
+                    class="w-full border border-gray-300 bg-white py-3 rounded-md flex items-center justify-center gap-2 hover:bg-gray-100 transition">
+                    <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" class="w-5 h-5" />
+                    <span>Google'da Oturum Açın</span>
+                </button>
+            </form>
+
+            <p class="text-center text-sm text-gray-600 mt-6">
+                Hesabınız Yok Mu?
+                <a href="join.html" class="text-blue-700 hover:underline">Üye Ol</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+
+    <script src="login.js"></script>
+
+</body>
+
+</html>

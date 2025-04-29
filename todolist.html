@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToDo App</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+
+<body class="bg-gray-100">
+
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-[#1E2A38] text-white flex flex-col">
+      <div class="flex items-center justify-center h-20 border-b border-white/10">
+        <span class="material-icons mr-3" style="font-size: 30px;">checklist</span>
+        <span class="text-2xl font-bold text-[#C4D0EB]">TO-DO<span class="text-white"> LIST</span></span>
+      </div>
+
+      <!-- Menu -->
+      <nav class="flex-1 px-4 py-6">
+        <ul class="space-y-2">
+          <li>
+            <a href="#" class="flex items-center px-4 py-2 bg-[#2A3A4F] rounded-lg font-medium"
+              style="font-size: 20px;">
+              <span class="material-icons mr-3" style="font-size: 20px;">dashboard</span>
+              Dashboard
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Content Area -->
+    <div class="flex-1 bg-white p-8 overflow-y-auto">
+      <!-- Breadcrumb -->
+      <div class="mb-4">
+        <div class="flex items-center space-x-2 text-xl text-gray-700 font-semibold mb-2">
+          <span class="material-icons text-base text-gray-500">dashboard</span>
+          <span>Dashboard</span>
+          <span class="text-gray-400">/</span>
+          <span class="text-gray-900">Overview</span>
+        </div>
+        <div class="border-t border-gray-300"></div>
+      </div>
+
+      <!-- Header -->
+      <div class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-bold text-gray-800">My Todo</h1>
+        <div class="flex items-center space-x-4">
+          <button id="addNewTaskBtn"
+            class="flex items-center justify-center bg-[#334977] text-white text-base px-5 py-2.5 rounded-lg hover:bg-[#2A3A4F]">
+            <span
+              class="flex items-center justify-center w-10 h-10 bg-white text-[#334977] rounded-full border-4 border-[#334977] mr-3 text-2xl font-bold">
+              +
+            </span>
+            New Task
+          </button>
+
+          <img src="https://i.pravatar.cc/40" alt="profile" class="w-10 h-10 rounded-full border cursor-pointer" />
+        </div>
+      </div>
+
+      <!-- New Task Form (Initially Hidden) -->
+      <div id="taskFormContainer" class="hidden bg-white border rounded-lg p-4 shadow mb-6">
+        <input id="taskTitleInput" type="text" placeholder="Title"
+          class="w-full mb-2 px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-300 text-sm" />
+        <textarea id="taskDescInput" placeholder="Description"
+          class="w-full mb-2 px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-300 text-sm resize-none"
+          rows="3"></textarea>
+
+        <select id="taskCategoryInput"
+          class="w-full mb-4 px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-300 text-sm">
+          <option value="" disabled selected>Kategori Seç</option>
+          <option value="school">🎓 Okul</option>
+          <option value="home">🏡 Ev</option>
+          <option value="work">💼 İş</option>
+        </select>
+
+        <button id="addTaskConfirmBtn"
+          class="w-full bg-[#1E2A44] text-white py-2 rounded hover:bg-[#162032] transition text-sm">
+          Add Task
+        </button>
+      </div>
+
+      <!-- Search & Date -->
+      <div class="flex items-center space-x-4 mb-6">
+        <div class="relative">
+          <input type="text" placeholder="Search" id="searchInput"
+            class="border border-gray-300 rounded-lg pl-10 pr-4 py-2 w-60 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          <span class="absolute left-3 top-2.5 text-gray-400 material-icons">search</span>
+        </div>
+        <input type="text"
+          class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="Tarih Seçiniz" id="datepicker" />
+      </div>
+
+      <!-- Task Columns -->
+      <div class="grid grid-cols-3 gap-4">
+        <!-- School Tasks -->
+        <div class="bg-blue-50 rounded-lg p-4">
+          <h2 class="text-sm font-semibold text-gray-800 mb-4">
+            <span class="inline-block w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+            🎓 Okul
+          </h2>
+          <div id="schoolTasks" class="space-y-4"></div>
+        </div>
+
+        <!-- Home Tasks -->
+        <div class="bg-green-50 rounded-lg p-4">
+          <h2 class="text-sm font-semibold text-gray-800 mb-4">
+            <span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+            🏡 Ev
+          </h2>
+          <div id="homeTasks" class="space-y-4"></div>
+        </div>
+
+        <!-- Work Tasks -->
+        <div class="bg-yellow-50 rounded-lg p-4">
+          <h2 class="text-sm font-semibold text-gray-800 mb-4">
+            <span class="inline-block w-2 h-2 bg-yellow-500 rounded-full mr-2"></span>
+            💼 İş
+          </h2>
+          <div id="workTasks" class="space-y-4"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="todolist.js"></script>
+</body>
+</html>
